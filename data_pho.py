@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 # 读取csv保存的数据
 fig_title=0
-for daily in pd.read_csv('D:\pythonProject\StockDL\indo10csv\ASII.JK_testing.csv',
+for daily in pd.read_csv('indo10csv\ASII.JK_testing.csv',
                     index_col=0,
                     parse_dates=True,
                     usecols=[0, 1, 2, 3, 4, 6],
@@ -24,7 +24,7 @@ for daily in pd.read_csv('D:\pythonProject\StockDL\indo10csv\ASII.JK_testing.csv
              style='yahoo',
              figratio=(20, 20),
              figscale=5,
-             savefig="A_stock-%d_candle_line.png" % fig_title
+             savefig="dataset/A_stock-%d_candle_line.png" % fig_title
              )
 
 

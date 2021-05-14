@@ -7,21 +7,24 @@
 
 import mplfinance as mpf
 import pandas as pd
+import glob
 
-daily=pd.read_csv('D:\pythonProject\StockDL\indo10csv\ASII.JK_testing.csv',
+path=r'indo10csv'
+filenames = glob.glob(path + "/*.csv")
+fig_title=0
+for filename in filenames:
+    for daily in pd.read_csv(filename,
                     index_col=0,
                     parse_dates=True,
                     usecols=[0, 1, 2, 3, 4, 6],
-                    chunksize=5
-                    )
-for piece in daily:
-    for i in range(1000):
-        i += 1
-    mpf.plot(daily,
+                    chunksize=100
+                    ):
+        fig_title+=1
+        mpf.plot(daily,
              type='candle',
              volume=True,
              style='yahoo',
              figratio=(20, 20),
              figscale=5,
-             savefig="A_stock-%d_candle_line.png" %i
+             savefig="dataset/A_stock-%d_candle_line.png" % fig_title
              )
