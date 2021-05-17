@@ -22,7 +22,6 @@ for filename in filenames:
         fig_title+=1
         mpf.plot(daily,
              type='candle',
-             volume=True,
              style='yahoo',
              figratio=(20, 20),
              figscale=5,
